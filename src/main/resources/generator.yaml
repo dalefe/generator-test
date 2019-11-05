@@ -1,0 +1,13 @@
+db:
+  url: jdbc:mysql://localhost:3306/test?verifyServerCertificate=false&useSSL=false&serverTimezone=UTC
+  username: root
+  password: root
+author: dalefe
+packageName: com.dalefe.generator
+path:
+  controller: controller
+  service: service.impl
+  interf: service
+  dao: dao
+  entity: entity
+  mapper: mappers
