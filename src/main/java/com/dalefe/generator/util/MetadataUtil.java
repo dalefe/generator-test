@@ -1,5 +1,7 @@
 package com.dalefe.generator.util;
 
+import lombok.Data;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,33 +10,13 @@ import java.util.List;
  * 负责获取表的元信息
  * 列的元信息
  */
-
+@Data
 public class MetadataUtil {
 	private static Connection conn ;
 	private static DatabaseMetaData meta;
-//	static {
-//		try {
-//			Class.forName("com.mysql.cj.jdbc.Driver");
-//		}catch (ClassNotFoundException e){
-//			e.printStackTrace();
-//			System.out.println("数据库连接失败！");
-//		}
-//	}
-//	public static void openConnection(){
-//		try {
-//			if (conn==null||conn.isClosed()){
-//				conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/test?verifyServerCertificate=false&useSSL=false&serverTimezone=UTC",
-//						"root","root");
-//				meta=conn.getMetaData();
-//			}
-//		}catch (SQLException e){
-//			e.printStackTrace();
-//		}
-//
-//	}
 public static void initConnection() {
 	try {
-		Class.forName("com.mysql.cj.jdbc.Driver");
+		Class.forName(ConfigUtil.getConfiguration().getDb().getDriver());
 		String url = ConfigUtil.getConfiguration().getDb().getUrl();
 		String username = ConfigUtil.getConfiguration().getDb().getUsername();
 		String password = ConfigUtil.getConfiguration().getDb().getPassword();
@@ -97,20 +79,4 @@ public static void initConnection() {
 		return columnInfoList;
 	}
 
-
-	public static DatabaseMetaData getMeta() {
-		return meta;
-	}
-
-	public static void setMeta(DatabaseMetaData meta) {
-		MetadataUtil.meta = meta;
-	}
-
-	public static Connection getConn() {
-		return conn;
-	}
-
-	public static void setConn(Connection conn) {
-		MetadataUtil.conn = conn;
-	}
 }

@@ -1,2 +1,6 @@
-# generator-test
-dalefe_Web快速生成平台
+# generator-test    dalefe_Web快速生成平台
+### 一、 将项目整合为SpringBoot项目，为下一步前端搭建做准备；
+- 整合两个小项目，将完整的过程与完备的配置整合；
+- 大致确定架构，后续根据业务扩充完善；
+### 二、 模板业务进度
+- Entity已测试成功，下一步将实现Dao模板的设计；

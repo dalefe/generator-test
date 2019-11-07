@@ -2,6 +2,7 @@ db:
   url: jdbc:mysql://localhost:3306/test?verifyServerCertificate=false&useSSL=false&serverTimezone=UTC
   username: root
   password: root
+  driver: com.mysql.cj.jdbc.Driver
 author: dalefe
 packageName: com.dalefe.generator
 path:
@@ -10,4 +11,4 @@ path:
   interf: service
   dao: dao
   entity: entity
-  mapper: mappers
+  mapper: mapperstemplate
