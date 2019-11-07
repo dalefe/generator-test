@@ -3,8 +3,12 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import com.dalefe.generator.util.*;
 import org.junit.Test;
-
+/**
+ * @author dalefe
+ * @version  2019/11/07
+ */
 public class entityTest {
+
 
 
 

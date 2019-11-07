@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 
 /**
- * Author GreedyStar
- * Date   2018/9/7
+ * @author dalefe
+ * @version  2019/11/07
  */
 @Data
 public class Configuration implements Serializable {

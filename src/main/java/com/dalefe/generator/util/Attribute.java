@@ -1,7 +1,10 @@
 package com.dalefe.generator.util;
 
 import lombok.Data;
-
+/**
+ * @author dalefe
+ * @version  2019/11/07
+ */
 @Data
 public class Attribute {
 	public String type;

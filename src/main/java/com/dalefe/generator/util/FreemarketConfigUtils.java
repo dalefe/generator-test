@@ -5,7 +5,10 @@ import freemarker.template.Configuration;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
-
+/**
+ * @author dalefe
+ * @version  2019/11/07
+ */
 public class FreemarketConfigUtils {
     private static String path = new File(FreemarketConfigUtils.class.getClassLoader().getResource("ftls").getFile()).getPath();
     public final static int TYPE_ENTITY = 0;

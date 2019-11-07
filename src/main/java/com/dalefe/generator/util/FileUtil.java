@@ -6,8 +6,8 @@ import freemarker.template.TemplateException;
 import java.io.*;
 
 /**
- * Author GreedyStar
- * Date   2018/4/19
+ * @author dalefe
+ * @version  2019/11/07
  */
 public class FileUtil {
 

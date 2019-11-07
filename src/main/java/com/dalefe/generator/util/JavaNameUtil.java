@@ -3,7 +3,8 @@ package com.dalefe.generator.util;
 /**
  * java类名、属性名、方法名转换工具类
  *
- * @author imagines
+ * @author dalefe
+ * @version 2019/11/07
  */
 public class JavaNameUtil {
 	/**

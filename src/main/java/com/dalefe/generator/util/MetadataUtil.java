@@ -5,10 +5,9 @@ import lombok.Data;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
- * 负责获取表的元信息
- * 列的元信息
+ * @author dalefe
+ * @version  2019/11/07
  */
 @Data
 public class MetadataUtil {

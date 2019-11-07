@@ -3,8 +3,8 @@ package com.dalefe.generator.util;
 import java.io.File;
 
 /**
- * Author GreedyStar
- * Date   2018-09-10
+ * @author dalefe
+ * @version  2019/11/07
  */
 public class StringUtil {
 
