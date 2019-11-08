@@ -1,14 +1,14 @@
-package ${packageName};
+package ${basePackageName}${packageName};
 
 import java.util.Date;
 import lombok.Data;
 
 /**
 * @author ${author?if_exists}
-* @date ${date?if_exists}
+* @date ${date}
 */
 @Data
-public class ${className}{
+public class ${ClassName}{
 
 <#-- 循环类型及属性 -->
 <#list attrs as attr>
