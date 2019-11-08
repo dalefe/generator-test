@@ -3,8 +3,6 @@ package com.dalefe.generator.tasks;
 import com.dalefe.generator.util.*;
 import lombok.Data;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -14,20 +12,20 @@ import java.util.*;
  * @date 2019/11/8
  */
 @Data
-@Component
 public class BaseTask {
 
-//	@Autowired
-//	EntityTask entityTask;
-//
-//	@Autowired
-//	DaoTask daoTask;
+
+	private EntityTask entityTask;
+
+	private DaoTask daoTask;
 
 
 
 	//生成bean
 	@Test
 	public void getBean() throws Exception {
+		setDaoTask(daoTask);
+		setEntityTask(entityTask);
 		//获取表名集合
 		List<String> strs = MetadataUtil.getTableNames();
 		for (String str1 : strs
@@ -50,14 +48,12 @@ public class BaseTask {
 			SimpleDateFormat sd = new SimpleDateFormat("yyyy/MM/dd");
 			Map<String, Object> root = new HashMap<>();
 			root.put("basePackageName", ConfigUtil.getConfiguration().getPackageName() + ".");
-//			root.put("packageName",ConfigUtil.getConfiguration().getPath().getEntity());
 			root.put("ClassName", str);
 			root.put("attrs", attr_list);
 			root.put("author", ConfigUtil.getConfiguration().getAuthor());
 			root.put("date", sd.format(new Date()));
-//			FileUtil.generateToJava(FreemarketConfigUtils.TYPE_ENTITY, root, filePath + fileName);
-			EntityTask.markBean(root,str);
-			DaoTask.markBeans(root,str);
+			entityTask.markBean(root,str);
+			daoTask.markBeans(root,str);
 		}
 
 	}

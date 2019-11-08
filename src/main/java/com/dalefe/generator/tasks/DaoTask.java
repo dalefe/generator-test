@@ -6,7 +6,7 @@ import com.dalefe.generator.util.FileUtil;
 import com.dalefe.generator.util.FreemarketConfigUtils;
 import com.dalefe.generator.util.StringUtil;
 import freemarker.template.TemplateException;
-import org.springframework.stereotype.Component;
+import lombok.Data;
 
 import java.io.IOException;
 import java.util.Map;
@@ -15,7 +15,7 @@ import java.util.Map;
  * @author dalefe
  * @date 2019/11/8
  */
-@Component
+@Data
 public class DaoTask{
 
 	public static Boolean markBeans(Map<String, Object> root, String str){

@@ -2,7 +2,7 @@ package com.dalefe.generator.tasks;
 
 import com.dalefe.generator.util.*;
 import freemarker.template.TemplateException;
-import org.springframework.stereotype.Component;
+import lombok.Data;
 
 import java.io.IOException;
 import java.util.Map;
@@ -12,7 +12,7 @@ import java.util.Map;
  * @author dalefe
  * @version  2019/11/07
  */
-@Component
+@Data
 public class EntityTask{
 
 	/**
