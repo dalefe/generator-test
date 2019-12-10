@@ -11,4 +11,4 @@ path:
   interf: service
   dao: dao
   entity: entity
-  mapper: mapperstemplate
+  mapper: mappers

@@ -25,7 +25,7 @@ public class EntityTask{
 	public static Boolean markBean(Map<String, Object> root,String str){
 		String filePath = FileUtil.getSourcePath() + StringUtil.package2Path(ConfigUtil.getConfiguration().getPackageName()) + StringUtil.package2Path(ConfigUtil.getConfiguration().getPath().getEntity());
 		String fileName = str + ".java";
-		root.put("packageName",ConfigUtil.getConfiguration().getPath().getEntity());
+		root.put("PackageName",ConfigUtil.getConfiguration().getPath().getEntity());
 		try {
 			FileUtil.generateToJava(FreemarketConfigUtils.TYPE_ENTITY, root, filePath + fileName);
 		} catch (IOException e) {

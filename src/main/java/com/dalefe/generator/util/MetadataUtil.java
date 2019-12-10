@@ -69,10 +69,11 @@ public static void initConnection() {
 		ResultSet rs=meta.getColumns(null,"%",tableName,"%");
 		List<String[]> columnInfoList=new ArrayList<>();
 		while (rs.next()){
-			String[] colInfo=new  String[3];
+			String[] colInfo=new  String[4];
 			colInfo[0] =rs.getString("COLUMN_NAME");
 			colInfo[1] =rs.getString("REMARKS");
 			colInfo[2] =rs.getString("TYPE_NAME");
+			colInfo[3] = tableName;
 			columnInfoList.add(colInfo);
 		}
 		return columnInfoList;

@@ -8,12 +8,17 @@ import lombok.Data;
  */
 @Data
 public class Attribute {
-	public String type;
-	public String name;
-	public String remarks;
-public Attribute(String attrType,String attrName,String remarks){
-	this.type = attrType;
-	this.name = attrName;
-	this.remarks = remarks;
-}
+	private String columnName;
+	private String type;
+	private String name;
+	private String remarks;
+	private boolean isPrimaryKey; // 是否主键
+
+	public Attribute(String attrType,String attrName,String remarks,String columnName,Boolean isPrimaryKey){
+		this.type = attrType;
+		this.name = attrName;
+		this.remarks = remarks;
+		this.columnName = columnName;
+		this.isPrimaryKey = isPrimaryKey;
+	}
 }

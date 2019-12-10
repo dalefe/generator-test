@@ -22,7 +22,7 @@ public class DaoTask{
 		String filePath = FileUtil.getSourcePath() + StringUtil.package2Path(ConfigUtil.getConfiguration().getPackageName()) + StringUtil.package2Path(ConfigUtil.getConfiguration().getPath().getDao());
 		String fileName = str + "Dao" + ".java";
 		root.put("EntityName", StringUtil.firstToLowerCase(root.get("ClassName").toString()));
-		root.put("packageName",ConfigUtil.getConfiguration().getPath().getDao());
+		root.put("PackageName",ConfigUtil.getConfiguration().getPath().getDao());
 		root.put("EntityPackageName", ConfigUtil.getConfiguration().getPath().getEntity());
 		try {
 			FileUtil.generateToJava(FreemarketConfigUtils.TYPE_DAO, root, filePath + fileName);

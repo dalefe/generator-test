@@ -1,4 +1,4 @@
-package ${basePackageName}${packageName};
+package ${BasePackageName}${PackageName};
 
 import java.util.Date;
 import lombok.Data;

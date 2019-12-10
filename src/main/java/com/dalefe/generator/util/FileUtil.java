@@ -49,15 +49,15 @@ public class FileUtil {
             case FreemarketConfigUtils.TYPE_ENTITY:
                 return FreemarketConfigUtils.getInstance().getTemplate("entity.ftl");
             case FreemarketConfigUtils.TYPE_DAO:
-                return FreemarketConfigUtils.getInstance().getTemplate("Dao.ftl");
+                return FreemarketConfigUtils.getInstance().getTemplate("dao.ftl");
             case FreemarketConfigUtils.TYPE_SERVICE:
-                return FreemarketConfigUtils.getInstance().getTemplate("Service.ftl");
+                return FreemarketConfigUtils.getInstance().getTemplate("service.ftl");
             case FreemarketConfigUtils.TYPE_CONTROLLER:
-                return FreemarketConfigUtils.getInstance().getTemplate("Controller.ftl");
+                return FreemarketConfigUtils.getInstance().getTemplate("controller.ftl");
             case FreemarketConfigUtils.TYPE_MAPPER:
-                return FreemarketConfigUtils.getInstance().getTemplate("Mapper.ftl");
+                return FreemarketConfigUtils.getInstance().getTemplate("mapper.ftl");
             case FreemarketConfigUtils.TYPE_INTERFACE:
-                return FreemarketConfigUtils.getInstance().getTemplate("Interface.ftl");
+                return FreemarketConfigUtils.getInstance().getTemplate("interface.ftl");
             default:
                 return null;
         }
