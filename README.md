@@ -8,3 +8,4 @@
 - Entity已测试成功，下一步将实现Dao模板的设计；
 - Dao已测试成功，下一步将设计Mapper模板；
 - Mapper已测试成功，下一步将进行service接口设计；
+- Service模板完成，测试成功，移除接口——实现模式，下一步直接设计Controller模板及前端的设计
