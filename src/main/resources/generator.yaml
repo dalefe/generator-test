@@ -7,8 +7,8 @@ author: dalefe
 packageName: com.dalefe.generator
 path:
   controller: controller
-  service: service.impl
-  interf: service
+  service: service
+  interf: service.impl
   dao: dao
   entity: entity
   mapper: mappers

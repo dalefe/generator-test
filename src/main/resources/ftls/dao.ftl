@@ -2,6 +2,7 @@ package ${BasePackageName}${PackageName};
 
 import ${BasePackageName}${EntityPackageName}.*;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
@@ -9,11 +10,12 @@ import java.util.List;
 * @date ${date}
 */
 @Mapper
+@Repository
 public interface ${ClassName}Dao {
 
 public ${ClassName} get(String id);
 
-public List<${ClassName}> findList(${ClassName} ${EntityName});
+public List<${ClassName}> findList();
 
 public int insert(${ClassName} ${EntityName});
 
