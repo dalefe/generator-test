@@ -57,7 +57,7 @@ public class FileUtil {
             case FreemarketConfigUtils.TYPE_MAPPER:
                 return FreemarketConfigUtils.getInstance().getTemplate("mapper.ftl");
             case FreemarketConfigUtils.TYPE_INTERFACE:
-                return FreemarketConfigUtils.getInstance().getTemplate("interface.ftl");
+                return FreemarketConfigUtils.getInstance().getTemplate("serviceImpl.ftl");
             default:
                 return null;
         }

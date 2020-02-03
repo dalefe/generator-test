@@ -13,28 +13,16 @@ import java.util.List;
 */
 
 @Service
-public class ${ClassName}Service {
+public interface ${ClassName}Service {
 
-    @Autowired
-    ${ClassName}Dao ${EntityName}dao;
 
-    private ${ClassName} get(String id){
-        return ${EntityName}dao.get(id);
-    }
+public ${ClassName} get(String id);
 
-    private List<${ClassName}> findList(){
-        return ${EntityName}dao.findList();
-    }
+public List<${ClassName}> findList();
 
-    private int insert(${ClassName} ${EntityName}){
-        return ${EntityName}dao.insert(${EntityName});
-    }
+public int insert(${ClassName} ${EntityName});
 
-    private int update(${ClassName} ${EntityName}){
-        return ${EntityName}dao.update(${EntityName});
-    }
+public int update(${ClassName} ${EntityName});
 
-    private int delete(${ClassName} ${EntityName}){
-        return ${EntityName}dao.delete(${EntityName});
-    }
+public int delete(${ClassName} ${EntityName});
 }

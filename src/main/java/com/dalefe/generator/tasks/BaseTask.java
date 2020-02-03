@@ -3,6 +3,7 @@ package com.dalefe.generator.tasks;
 import com.dalefe.generator.util.*;
 import lombok.Data;
 import org.junit.Test;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 import static com.dalefe.generator.util.GeneratorUtil.*;
@@ -21,7 +22,9 @@ public class BaseTask {
 
 	private MapperTask mapperTask;
 
-	private ServiceTask serviceTask;
+	private ServiceImplTask serviceImplTask;
+
+	private ControllerTask controllerTask;
 
 
 
@@ -30,7 +33,8 @@ public class BaseTask {
 		setDaoTask(daoTask);
 		setEntityTask(entityTask);
 		setMapperTask(mapperTask);
-		setServiceTask(serviceTask);
+	    setServiceImplTask(serviceImplTask);
+		setControllerTask(controllerTask);
 		//获取表名集合
 		List<String> strs = MetadataUtil.getTableNames();
 		for (String str1 : strs
@@ -64,7 +68,8 @@ public class BaseTask {
 			entityTask.markBean(root,str);
 			daoTask.markBeans(root,str);
 			mapperTask.markBeans(root,str);
-			serviceTask.markBeans(root,str);
+			serviceImplTask.markBeans(root,str);
+			controllerTask.markBeans(root,str);
 
 		}
 

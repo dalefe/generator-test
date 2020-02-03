@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias alias="Role" type="com.dalefe.generator.entity.Role" />
+        <typeAlias alias="TOffice" type="com.dalefe.generator.entity.TOffice" />
+        <typeAlias alias="TUser" type="com.dalefe.generator.entity.TUser" />
+        <typeAlias alias="UserRole" type="com.dalefe.generator.entity.UserRole" />
+    </typeAliases>
+</configuration>
