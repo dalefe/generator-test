@@ -3,6 +3,7 @@ package com.dalefe.generator.tasks;
 import com.dalefe.generator.util.*;
 import lombok.Data;
 import org.junit.Test;
+import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -13,6 +14,7 @@ import static com.dalefe.generator.util.GeneratorUtil.*;
  * @date 2019/11/8
  */
 @Data
+@Service
 public class BaseTask {
 
 
