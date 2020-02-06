@@ -2,7 +2,8 @@
 启动方式
 - 单元测试方式：启动方式为BaseTask类中的getBean方法；
 - 项目启动，端口8080
-- 代码生成访问接口：index
+- 代码生成访问接口：index返回表名
+- 勾选表名访问getBean接口，生成成功即结束
 - 目前生成的接口为getBeanName,findListBeanName,insertBeanName,updateBeanName,deleteBeanName
 ### 一、 将项目整合为SpringBoot项目，为下一步前端搭建做准备；
 - 整合两个小项目，将完整的过程与完备的配置整合；

@@ -33,7 +33,7 @@ public class BaseTask {
 
 
 @Test
-	public void getBean() throws Exception {
+	public void getBean(List<String> tableName) throws Exception {
 		setDaoTask(daoTask);
 		setEntityTask(entityTask);
 		setMapperTask(mapperTask);
@@ -41,8 +41,8 @@ public class BaseTask {
 		setControllerTask(controllerTask);
 		setServiceTask(serviceTask);
 		//获取表名集合
-		List<String> strs = MetadataUtil.getTableNames();
-		for (String str1 : strs
+//		List<String> strs = MetadataUtil.getTableNames();
+		for (String str1 : tableName
 		) {
 			if (str1.equals("sys_config")) {
 				continue;
