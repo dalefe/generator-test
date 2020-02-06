@@ -26,6 +26,8 @@ public class BaseTask {
 
 	private ControllerTask controllerTask;
 
+	private ServiceTask serviceTask;
+
 
 
 @Test
@@ -35,6 +37,7 @@ public class BaseTask {
 		setMapperTask(mapperTask);
 	    setServiceImplTask(serviceImplTask);
 		setControllerTask(controllerTask);
+		setServiceTask(serviceTask);
 		//获取表名集合
 		List<String> strs = MetadataUtil.getTableNames();
 		for (String str1 : strs
@@ -68,6 +71,7 @@ public class BaseTask {
 			entityTask.markBean(root,str);
 			daoTask.markBeans(root,str);
 			mapperTask.markBeans(root,str);
+			serviceTask.markBeans(root,str);
 			serviceImplTask.markBeans(root,str);
 			controllerTask.markBeans(root,str);
 

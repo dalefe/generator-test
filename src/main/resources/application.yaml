@@ -1,9 +1,8 @@
 server:
     port: 8080
 mybatis:
-    mapper-locations: classpath:mappers/*.xml
-    config-location: classpath:mybatis-config.xml
-    type-aliases-package: con.dalefe.generator.entity
+#    mapper-locations: classpath:mappers/*.xml
+    mapper-locations: classpath:com/dalefe/generator/mappers/*.xml
 spring:
     application: dalefe
     datasource:

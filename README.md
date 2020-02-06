@@ -10,3 +10,7 @@
 - Mapper已测试成功，下一步将进行service接口设计；
 - Service模板完成，测试成功，移除接口——实现模式，下一步直接设计Controller模板及前端的设计；
 - controller模板完成，测试成功，下一步将进行前端模板的设计；
+### 三、 生成代码整合
+- 修改了Mapper文件必须手动移动的bug，可在JAVA目录直接加载
+- 修改了Controller模板中的小bug
+- 修改了Mapper模板中的返回值，修改为全类名

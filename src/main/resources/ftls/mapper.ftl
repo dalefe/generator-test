@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="${BasePackageName}${DaoPackageName}${ClassName}Dao">
 
-    <select id="get" resultType="${ClassName}">
+    <select id="get" resultType="com.dalefe.generator.entity.${ClassName}">
         SELECT *
         FROM ${TableName}
         <where>
-            ${TableName}.${PrimaryKey} = ${id}
+            ${TableName}.${PrimaryKey} = <#noparse>#{</#noparse>${id}<#noparse>}</#noparse>
         </where>
     </select>
 
-    <select id="findList" resultType="${ClassName}">
+    <select id="findList" resultType="com.dalefe.generator.entity.${ClassName}">
         SELECT *
         FROM ${TableName}
     </select>
@@ -27,12 +27,12 @@
     <update id="update">
         UPDATE ${TableName} SET
         ${UpdateProperties}
-        WHERE ${PrimaryKey} = ${id}
+        WHERE ${PrimaryKey} = <#noparse>#{</#noparse>${id}<#noparse>}</#noparse>
     </update>
 
     <update id="delete">
         DELETE FROM ${TableName}
-        WHERE ${PrimaryKey} = ${id}
+        WHERE ${PrimaryKey} = <#noparse>#{</#noparse>${id}<#noparse>}</#noparse>
     </update>
 
 </mapper>

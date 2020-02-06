@@ -10,7 +10,6 @@ import java.util.List;
 * @date ${date}
 */
 @Mapper
-@Repository
 public interface ${ClassName}Dao {
 
 public ${ClassName} get(String id);
