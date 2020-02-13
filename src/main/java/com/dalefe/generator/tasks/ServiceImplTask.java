@@ -18,7 +18,7 @@ public class ServiceImplTask {
 		String filePath = FileUtil.getSourcePath() + StringUtil.package2Path(ConfigUtil.getConfiguration().getPackageName()) + StringUtil.package2Path(ConfigUtil.getConfiguration().getPath().getInterf());
 		String fileName = str + "ServiceImpl" + ".java";
 		root.put("EntityName", StringUtil.firstToLowerCase(root.get("ClassName").toString()));
-		root.put("PackageName",ConfigUtil.getConfiguration().getPath().getService());
+		root.put("PackageName",ConfigUtil.getConfiguration().getPath().getInterf());
 		root.put("EntityPackageName", ConfigUtil.getConfiguration().getPath().getEntity());
 		root.put("DaoPackageName", ConfigUtil.getConfiguration().getPath().getDao());
 		root.put("ServicePackage",ConfigUtil.getConfiguration().getPath().getService());

@@ -109,11 +109,11 @@ public enum ResultCode {
 	/**
 	 * 400错误
 	 */
-	BAD_REQUEST("Bad Request!",400),
+	BAD_REQUEST("查询结果不存在或未使用Id查询!",400),
 	/**
 	 * 405错误
 	 */
-	METHOD_NOT_ALLOWED("Method Not Allowed! 有可能是接口类型错误！",405),
+	METHOD_NOT_ALLOWED("查询列表信息失败！",405),
 	/**
 	 * 500错误
 	 */

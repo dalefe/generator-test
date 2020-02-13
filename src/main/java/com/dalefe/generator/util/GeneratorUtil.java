@@ -140,9 +140,9 @@ public class GeneratorUtil {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < infos.size(); i++) {
 	        //不允许插入id
-	        if(infos.get(i).getColumnName().equals("id")){
-		        continue;
-	        }
+//	        if(infos.get(i).getColumnName().equals("id")){
+//		        continue;
+//	        }
             if (i != 0) {
                 sb.append("            ");
             }
@@ -158,9 +158,9 @@ public class GeneratorUtil {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < infos.size(); i++) {
 	        //不允许插入id
-	        if(infos.get(i).getName().equals("id")){
-		        continue;
-	        }
+//	        if(infos.get(i).getName().equals("id")){
+//		        continue;
+//	        }
             if (i != 0) {
                 sb.append("            ");
             }

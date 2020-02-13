@@ -44,9 +44,6 @@ public class BaseTask {
 //		List<String> strs = MetadataUtil.getTableNames();
 		for (String str1 : tableName
 		) {
-			if (str1.equals("sys_config")) {
-				continue;
-			}
 			List<String[]> strList = MetadataUtil.getTableColumnsInfo(str1);
 			List<Attribute> attr_list = new ArrayList<>();
 			for (String[] c : strList

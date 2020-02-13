@@ -2,12 +2,14 @@ package ${BasePackageName}${PackageName};
 
 import ${BasePackageName}${EntityPackageName}.*;
 import ${BasePackageName}${ServicePackageName}.*;
+import com.dalefe.generator.util.MetadataUtil;
 import com.dalefe.generator.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+
+import java.util.HashMap;
 
 /**
 * @author ${author?if_exists}
@@ -22,12 +24,25 @@ public class ${ClassName}Controller {
 
     @RequestMapping("get${ClassName}")
     private Result get(String id){
-        return Result.successJson(${EntityName}Service.get(id));
+        ${ClassName} ${EntityName} = ${EntityName}Service.get(id);
+        if(${EntityName}!=null){
+            return Result.successJson(${EntityName});
+        }else {
+        return Result.errorJson("查询结果不存在或未使用Id查询",400);
+        }
     }
 
     @RequestMapping("findList${ClassName}")
     private Result findList(){
-        return Result.successJson(${EntityName}Service.findList());
+        HashMap<String,Object> listInfo = new HashMap<>();
+        listInfo.put("tableInnerInfo",${EntityName}Service.findList());
+        try {
+        listInfo.put("tableHeadInfo",MetadataUtil.gettableInfoByTableName("${TableName}"));
+        return Result.successJson(listInfo);
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
+        return Result.errorJson("查询列表信息失败",405);
     }
 
     @RequestMapping("insert${ClassName}")

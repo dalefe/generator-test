@@ -30,9 +30,9 @@
         WHERE ${PrimaryKey} = <#noparse>#{</#noparse>${id}<#noparse>}</#noparse>
     </update>
 
-    <update id="delete">
+    <delete id="delete">
         DELETE FROM ${TableName}
         WHERE ${PrimaryKey} = <#noparse>#{</#noparse>${id}<#noparse>}</#noparse>
-    </update>
+    </delete>
 
 </mapper>

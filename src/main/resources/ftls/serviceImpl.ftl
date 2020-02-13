@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
 * @author ${author?if_exists}
@@ -28,6 +29,7 @@ public class ${ClassName}ServiceImpl implements ${ClassName}Service {
     }
 
     public int insert(${ClassName} ${EntityName}){
+        ${EntityName}.setId(UUID.randomUUID().toString());
         return ${EntityName}Dao.insert(${EntityName});
     }
 

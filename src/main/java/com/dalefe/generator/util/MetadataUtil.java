@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 /**
  * @author dalefe
@@ -50,6 +51,9 @@ public static void initConnection() {
 		try {
 			rs=meta.getTables(null,"test",null,new String[]{"TABLE"});
 			while (rs.next()){
+				if(rs.getString("TABLE_NAME").equals("sys_config")){
+					continue;
+				}
 				String tName=rs.getString("TABLE_NAME");
 				nameList.add(tName);
 			}
@@ -77,6 +81,23 @@ public static void initConnection() {
 			columnInfoList.add(colInfo);
 		}
 		return columnInfoList;
+	}
+	public static List<Object> gettableInfoByTableName(String tableName){
+		initConnection();
+		try {
+			ResultSet rs=meta.getColumns(null,"%",tableName,"%");
+			List<Object> tableInfo = new ArrayList<>();
+			HashMap<String,String> tableColumns = new HashMap<>();
+			while(rs.next()){
+				tableColumns.put("label",rs.getString("COLUMN_NAME"));
+				tableColumns.put("key",rs.getString("COLUMN_NAME"));
+				tableInfo.add(tableColumns);
+			}
+			return tableInfo;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
