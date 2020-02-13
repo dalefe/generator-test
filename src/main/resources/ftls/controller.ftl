@@ -4,6 +4,7 @@ import ${BasePackageName}${EntityPackageName}.*;
 import ${BasePackageName}${ServicePackageName}.*;
 import com.dalefe.generator.util.MetadataUtil;
 import com.dalefe.generator.util.Result;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 * @author ${author?if_exists}
 * @date ${date}
 */
-
+@CrossOrigin
 @RestController
 public class ${ClassName}Controller {
 
