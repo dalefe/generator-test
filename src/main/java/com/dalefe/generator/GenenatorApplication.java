@@ -12,4 +12,7 @@ public class GenenatorApplication {
 		SpringApplication.run(GenenatorApplication.class, args);
 	}
 
+
+
+
 }

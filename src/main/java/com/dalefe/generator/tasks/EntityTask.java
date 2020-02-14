@@ -4,6 +4,7 @@ import com.dalefe.generator.util.*;
 import freemarker.template.TemplateException;
 import lombok.Data;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
@@ -24,6 +25,10 @@ public class EntityTask{
 	 */
 	public static Boolean markBean(Map<String, Object> root,String str){
 		String filePath = FileUtil.getSourcePath() + StringUtil.package2Path(ConfigUtil.getConfiguration().getPackageName()) + StringUtil.package2Path(ConfigUtil.getConfiguration().getPath().getEntity());
+		File file = new File(filePath);
+		if (!file.exists()) {
+			file.mkdirs();
+		}
 		String fileName = str + ".java";
 		root.put("PackageName",ConfigUtil.getConfiguration().getPath().getEntity());
 		try {
