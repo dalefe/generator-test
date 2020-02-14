@@ -4,6 +4,7 @@ import ${BasePackageName}${EntityPackageName}.*;
 import ${BasePackageName}${ServicePackageName}.*;
 import com.dalefe.generator.util.MetadataUtil;
 import com.dalefe.generator.util.Result;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,17 +48,17 @@ public class ${ClassName}Controller {
     }
 
     @RequestMapping("insert${ClassName}")
-    private Result insert(${ClassName} ${EntityName}){
+    private Result insert(@RequestBody ${ClassName} ${EntityName}){
         return Result.successJson(${EntityName}Service.insert(${EntityName}));
     }
 
     @RequestMapping("update${ClassName}")
-    private Result update(${ClassName} ${EntityName}){
+    private Result update(@RequestBody ${ClassName} ${EntityName}){
         return Result.successJson(${EntityName}Service.update(${EntityName}));
     }
 
     @RequestMapping("delete${ClassName}")
-    private Result delete(${ClassName} ${EntityName}){
+    private Result delete(@RequestBody ${ClassName} ${EntityName}){
         return Result.successJson(${EntityName}Service.delete(${EntityName}));
     }
 }

@@ -87,8 +87,8 @@ public static void initConnection() {
 		try {
 			ResultSet rs=meta.getColumns(null,"%",tableName,"%");
 			List<Object> tableInfo = new ArrayList<>();
-			HashMap<String,String> tableColumns = new HashMap<>();
 			while(rs.next()){
+				HashMap<String,String> tableColumns = new HashMap<>();
 				tableColumns.put("label",rs.getString("COLUMN_NAME"));
 				tableColumns.put("key",rs.getString("COLUMN_NAME"));
 				tableInfo.add(tableColumns);
