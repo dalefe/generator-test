@@ -25,11 +25,11 @@ public class ${ClassName}Controller {
     ${ClassName}Service ${EntityName}Service;
 
     @RequestMapping("get${ClassName}")
-    private Result get(String id){
+    private Result get(@RequestBody ${ClassName} ${EntityName}){
         try {
-            ${ClassName} ${EntityName} = ${EntityName}Service.get(id);
-            if(${EntityName}!=null){
-                return Result.successJson(${EntityName});
+            ${ClassName} ${EntityName}2 = ${EntityName}Service.get(${EntityName});
+            if(${EntityName}2!=null){
+                return Result.successJson(${EntityName}2);
             }else {
             return Result.errorJson("查询结果不存在或未使用Id查询",400);
             }

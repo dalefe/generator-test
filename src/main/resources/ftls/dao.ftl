@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface ${ClassName}Dao {
 
-public ${ClassName} get(String id);
+public ${ClassName} get(${ClassName} ${EntityName});
 
 public List<${ClassName}> findList();
 

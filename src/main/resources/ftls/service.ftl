@@ -16,7 +16,7 @@ import java.util.List;
 public interface ${ClassName}Service {
 
 
-public ${ClassName} get(String id);
+public ${ClassName} get(${ClassName} ${EntityName});
 
 public List<${ClassName}> findList();
 

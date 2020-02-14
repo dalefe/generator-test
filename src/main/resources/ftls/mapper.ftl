@@ -6,7 +6,7 @@
         SELECT *
         FROM ${TableName}
         <where>
-            ${TableName}.${PrimaryKey} = <#noparse>#{</#noparse>${id}<#noparse>}</#noparse>
+            ${PrimaryKey} = <#noparse>#{</#noparse>${id}<#noparse>}</#noparse>
         </where>
     </select>
 

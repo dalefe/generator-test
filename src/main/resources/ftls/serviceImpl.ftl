@@ -20,8 +20,8 @@ public class ${ClassName}ServiceImpl implements ${ClassName}Service {
     @Autowired
     ${ClassName}Dao ${EntityName}Dao;
 
-    public ${ClassName} get(String id){
-        return ${EntityName}Dao.get(id);
+    public ${ClassName} get(${ClassName} ${EntityName}){
+        return ${EntityName}Dao.get(${EntityName});
     }
 
     public List<${ClassName}> findList(){
