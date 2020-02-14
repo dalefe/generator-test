@@ -29,7 +29,6 @@ public class ${ClassName}ServiceImpl implements ${ClassName}Service {
     }
 
     public int insert(${ClassName} ${EntityName}){
-        ${EntityName}.setId(UUID.randomUUID().toString());
         return ${EntityName}Dao.insert(${EntityName});
     }
 

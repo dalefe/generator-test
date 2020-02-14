@@ -90,7 +90,7 @@ public static void initConnection() {
 			while(rs.next()){
 				HashMap<String,String> tableColumns = new HashMap<>();
 				tableColumns.put("label",rs.getString("COLUMN_NAME"));
-				tableColumns.put("key",rs.getString("COLUMN_NAME"));
+				tableColumns.put("key",JavaNameUtil.toCamel(rs.getString("COLUMN_NAME")));
 				tableInfo.add(tableColumns);
 			}
 			return tableInfo;

@@ -26,11 +26,15 @@ public class ${ClassName}Controller {
 
     @RequestMapping("get${ClassName}")
     private Result get(String id){
-        ${ClassName} ${EntityName} = ${EntityName}Service.get(id);
-        if(${EntityName}!=null){
-            return Result.successJson(${EntityName});
-        }else {
-        return Result.errorJson("查询结果不存在或未使用Id查询",400);
+        try {
+            ${ClassName} ${EntityName} = ${EntityName}Service.get(id);
+            if(${EntityName}!=null){
+                return Result.successJson(${EntityName});
+            }else {
+            return Result.errorJson("查询结果不存在或未使用Id查询",400);
+            }
+        }catch (Exception e){
+        return Result.errorJson("数据库操作出现异常",401);
         }
     }
 
@@ -49,7 +53,11 @@ public class ${ClassName}Controller {
 
     @RequestMapping("insert${ClassName}")
     private Result insert(@RequestBody ${ClassName} ${EntityName}){
-        return Result.successJson(${EntityName}Service.insert(${EntityName}));
+        try {
+            return Result.successJson(${EntityName}Service.insert(${EntityName}));
+        }catch (Exception e){
+        return  Result.errorJson("数据库操作异常",401);
+        }
     }
 
     @RequestMapping("update${ClassName}")
