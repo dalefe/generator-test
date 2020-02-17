@@ -1,5 +1,6 @@
 package com.dalefe.generator.tasks;
 
+import com.dalefe.generator.entity.Attribute;
 import com.dalefe.generator.util.*;
 import lombok.Data;
 import org.junit.Test;
@@ -30,6 +31,12 @@ public class BaseTask {
 
 	private ServiceTask serviceTask;
 
+	private VueTask vueTask;
+
+	private ApiTask apiTask;
+
+	private RouteTask routeTask;
+
 
 
 @Test
@@ -40,8 +47,11 @@ public class BaseTask {
 	    setServiceImplTask(serviceImplTask);
 		setControllerTask(controllerTask);
 		setServiceTask(serviceTask);
-		//获取表名集合
-//		List<String> strs = MetadataUtil.getTableNames();
+		setVueTask(vueTask);
+		setApiTask(apiTask);
+		setRouteTask(routeTask);
+		Map<String, Object> routeData = new HashMap<>();
+		List<String> routeList = new ArrayList<>();
 		for (String str1 : tableName
 		) {
 			List<String[]> strList = MetadataUtil.getTableColumnsInfo(str1);
@@ -73,8 +83,11 @@ public class BaseTask {
 			serviceTask.markBeans(root,str);
 			serviceImplTask.markBeans(root,str);
 			controllerTask.markBeans(root,str);
-
+			vueTask.markBeans(root,str);
+			apiTask.markBeans(root,str);
+			routeList.add(StringUtil.firstToLowerCase(str));
 		}
-
+		routeData.put("RouteDatas",routeList);
+		routeTask.markBeans(routeData);
 	}
 }

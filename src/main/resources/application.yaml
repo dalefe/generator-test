@@ -3,6 +3,9 @@ server:
 mybatis:
 #    mapper-locations: classpath:mappers/*.xml
     mapper-locations: classpath:com/dalefe/generator/mappers/*.xml
+    mapper-configLocation: classpath:mybatis-config.xml
+    configuration:
+      map-underscore-to-camel-case: true
 spring:
     application: dalefe
     datasource:
@@ -10,3 +13,11 @@ spring:
         username: root
         password: root
         driver-class-name: com.mysql.cj.jdbc.Driver
+    devtools:
+      restart:
+        enabled: true  #设置开启热部署
+        additional-paths: src/main/java #重启目录
+        exclude: WEB-INF/**
+      freemarker:
+        cache: false    #页面不加载缓存，修改即时生效
+

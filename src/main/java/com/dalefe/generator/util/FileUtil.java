@@ -58,6 +58,12 @@ public class FileUtil {
                 return FreemarketConfigUtils.getInstance().getTemplate("mapper.ftl");
             case FreemarketConfigUtils.TYPE_INTERFACE:
                 return FreemarketConfigUtils.getInstance().getTemplate("serviceImpl.ftl");
+	        case FreemarketConfigUtils.TYPE_VUE:
+		        return FreemarketConfigUtils.getInstance().getTemplate("vue.ftl");
+	        case FreemarketConfigUtils.TYPE_ROUTE:
+		        return FreemarketConfigUtils.getInstance().getTemplate("route.ftl");
+	        case FreemarketConfigUtils.TYPE_API:
+		        return FreemarketConfigUtils.getInstance().getTemplate("api.ftl");
             default:
                 return null;
         }

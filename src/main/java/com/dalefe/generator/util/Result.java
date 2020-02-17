@@ -51,18 +51,6 @@ public class Result {
 	 * 失败返回的json封装体
 	 * @return json格式
 	 */
-	public static Result errorJson(){
-		Result results = new Result();
-		results.setCode(ResultCode.FAIL.getIndex());
-		results.setSuccess(false);
-		results.setMsg(ResultCode.FAIL.getMsg());
-		return results;
-	}
-
-	/**
-	 * 失败返回的json封装体
-	 * @return json格式
-	 */
 	public static Result errorJson(String msg){
 		Result results = new Result();
 		results.setCode(ResultCode.FAIL.getIndex());
@@ -80,8 +68,11 @@ public class Result {
 		results.setCode(code);
 		results.setSuccess(false);
 		results.setMsg(msg);
+		results.getExtend().put("data",null);
 		return results;
 	}
+
+
 
 }
 

@@ -57,7 +57,9 @@ public static void initConnection() {
 				String tName=rs.getString("TABLE_NAME");
 				nameList.add(tName);
 			}
-		}catch (Exception e){
+			rs.close();
+			conn.close();
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		return  nameList;
@@ -80,6 +82,8 @@ public static void initConnection() {
 			colInfo[3] = tableName;
 			columnInfoList.add(colInfo);
 		}
+		rs.close();
+		conn.close();
 		return columnInfoList;
 	}
 	public static List<Object> gettableInfoByTableName(String tableName){
@@ -93,6 +97,8 @@ public static void initConnection() {
 				tableColumns.put("key",JavaNameUtil.toCamel(rs.getString("COLUMN_NAME")));
 				tableInfo.add(tableColumns);
 			}
+			rs.close();
+			conn.close();
 			return tableInfo;
 		} catch (SQLException e) {
 			e.printStackTrace();

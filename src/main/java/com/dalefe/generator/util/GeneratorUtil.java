@@ -1,7 +1,8 @@
 package com.dalefe.generator.util;
 
 
-import java.sql.Types;
+import com.dalefe.generator.entity.Attribute;
+
 import java.util.List;
 
 

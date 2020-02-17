@@ -1,4 +1,4 @@
-package com.dalefe.generator.util;
+package com.dalefe.generator.entity;
 
 import lombok.Data;
 
@@ -14,7 +14,7 @@ public class Attribute {
 	private String remarks;
 	private boolean isPrimaryKey; // 是否主键
 
-	public Attribute(String attrType,String attrName,String remarks,String columnName,Boolean isPrimaryKey){
+	public Attribute(String attrType, String attrName, String remarks, String columnName, Boolean isPrimaryKey){
 		this.type = attrType;
 		this.name = attrName;
 		this.remarks = remarks;

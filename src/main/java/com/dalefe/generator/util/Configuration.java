@@ -41,17 +41,23 @@ public class Configuration implements Serializable {
         private String dao;
         private String entity;
         private String mapper;
+		private String vue;
+		private String route;
+		private String api;
 
         public Path() {
         }
 
-        public Path(String controller, String service, String interf,String dao, String entity, String mapper) {
+        public Path(String controller, String service, String interf,String dao, String entity, String mapper,String vue,String route,String api) {
             this.controller = controller;
             this.service = service;
             this.interf = interf;
             this.dao = dao;
             this.entity = entity;
             this.mapper = mapper;
+            this.vue = vue;
+            this.route = route;
+            this.api = api;
         }
     }
 

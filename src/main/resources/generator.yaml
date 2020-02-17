@@ -12,6 +12,9 @@ path:
   dao: dao
   entity: entity
   mapper: mappers
+  vue: vue
+  route: route
+  api: api
 
 
 

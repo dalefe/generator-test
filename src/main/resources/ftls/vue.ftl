@@ -40,7 +40,7 @@
                 >
                     <template slot-scope="scope">{{ scope.row[scope.column.property]}}</template>
                 </el-table-column>
-                <el-table-column align="center" label="操作" min-width="110px;">
+                <el-table-column align="center" label="操作" max-width="50px;">
                     <template slot-scope="scope">
                         <el-row>
                             <el-col :span="12">
@@ -158,8 +158,19 @@
 </template>
 
 <script>
+    import NProgress from "nprogress"; // progress bar
+    import "nprogress/nprogress.css"; // progress bar style
+    NProgress.configure({ showSpinner: false }); // NProgress configuration
     import Sticky from "@/components/Sticky";
     import BackToTop from "@/components/BackToTop";
+
+    import {
+        findList${ClassName},
+        update${ClassName},
+        delete${ClassName},
+        insert${ClassName}
+    } from "@/api/${ClassName}";
+    import { Message, MessageBox } from "element-ui";
 
     export default {
         components: { Sticky, BackToTop },
@@ -180,94 +191,52 @@
                 udialogVisible: false,
                 idialogVisible: false,
                 // 数据库表头部信息
-                tableHeadInfo: [
-                    {
-                        label: "UUID",
-                        key: "uuid"
-                    },
-                    {
-                        label: "film_name",
-                        key: "film_name"
-                    },
-                    {
-                        label: "film_type",
-                        key: "film_type"
-                    },
-                    {
-                        label: "img_address",
-                        key: "img_address"
-                    },
-                    {
-                        label: "film_socre",
-                        key: "film_socre"
-                    },
-                    {
-                        label: "film_preSaleNum",
-                        key: "film_preSaleNum"
-                    },
-                    {
-                        label: "film_box_office",
-                        key: "film_box_office"
-                    },
-                    {
-                        label: "film_source",
-                        key: "film_source"
-                    },
-                    {
-                        label: "film_cats",
-                        key: "film_cats"
-                    },
-                    {
-                        label: "film_area",
-                        key: "film_area"
-                    },
-                    {
-                        label: "film_time",
-                        key: "film_time"
-                    },
-                    {
-                        label: "film_status",
-                        key: "film_status"
-                    }
-                ],
-                tableInnerInfo: [
-                    {
-                        uuid: 1227069975103971329,
-                        film_name: "误杀",
-                        film_type: "0",
-                        img_address:
-                            "http://img5.mtime.cn/mg/2019/12/06/151725.72056401_270X405X4.jpg",
-                        film_socre: "7.7",
-                        film_preSaleNum: "331112491",
-                        film_box_office: "129600",
-                        film_source: "1",
-                        film_cats: "#4#6#9",
-                        film_area: "1",
-                        film_date: "14",
-                        film_time: "2019-12-13",
-                        film_status: 1
-                    }
-                ],
+                tableHeadInfo: [],
+                tableInnerInfo: [],
                 listLoading: false
             };
+        },
+        mounted() {
+            NProgress.start();
+            findList${ClassName}()
+                .then(response => {
+                if (response.code == 200) {
+                this.tableHeadInfo = response.extend.data.tableHeadInfo;
+                this.tableInnerInfo = response.extend.data.tableInnerInfo;
+            } else if (response.code == 405) {
+                Message({
+                    message: "数据库操作异常",
+                    type: "error",
+                    duration: 5 * 1000
+                });
+            }
+        })
+        .catch(response => {
+                Message({
+                            message: "查询失败",
+                            type: "error",
+                            duration: 5 * 1000
+        });
+        });
+            NProgress.done();
         },
         methods: {
             selectByIdClick() {
                 if (this.isDialogClick) {
-                    this.isDialogClick = false
+                    this.isDialogClick = false;
                     // 前端做一下缓存
                     for (let val of this.tableInnerInfo) {
-                        console.log(val.uuid);
+                        console.log(val.id);
                         console.log(this.selectById);
                         debugger;
-                        if (val.uuid == this.selectById) {
+                        if (val.id == this.selectById) {
                             this.selectedDate.push(val);
                         }
                     }
                     // 若缓存无，则向后端传递ID
                     // this.selectById
                     // this.selectedDate.push
-
+                    // 这里暂时没有向后端查询，只要保持回调一致即可
                     this.sdialogVisible = true;
                 }
             },
@@ -297,7 +266,8 @@
                     deleteFlag = true;
                 console.log(deleteFlag);
                 // 根据ID删除
-                console.log(rows[index].uuid);
+                delete${ClassName}(rows[index]).then(response => {
+                    console.log(rows[index].uuid);
                 if (deleteFlag) {
                     rows.splice(index, 1);
                 }
@@ -305,6 +275,7 @@
                     type: "success",
                     message: "删除成功!"
                 });
+            });
             })
             .catch(() => {
                     deleteFlag = false;
@@ -335,9 +306,11 @@
                 this.updatedClass.length = 0;
                 console.log("from:", this.updateFrom);
                 // 对后端提供this.updateFrom.uuid
+                // 访问后端
+                update${ClassName}(this.updateFrom).then(response => {});
                 this.$message({
                     type: "success",
-                    message: "修改成功!"
+                    message: "修改成功!(id不可修改)"
                 });
                 this.isDialogClick = true;
             },
@@ -356,16 +329,21 @@
                 }
             },
             insertConfirm() {
-                this.idialogVisible = false;
-                this.insertClass.length = 0;
-                console.log("插入：", this.insertOnceFrom);
-                this.$message({
-                    type: "success",
-                    message: "添加成功!"
-                });
-                this.tableInnerInfo.push(this.insertOnceFrom);
-                // 在明确回调之后清楚isDialogClick
-                this.isDialogClick = true;
+                insert${ClassName}(this.insertOnceFrom).then(response => {
+                    console.log(response);
+                if (response.code == 200) {
+                    this.idialogVisible = false;
+                    this.insertClass.length = 0;
+                    console.log("插入：", this.insertOnceFrom);
+                    this.tableInnerInfo.push(this.insertOnceFrom);
+                    this.$message({
+                        type: "success",
+                        message: "添加成功!"
+                    });
+                    // 在明确回调之后清除isDialogClick
+                    this.isDialogClick = true;
+                }
+            });
             },
             insertcancel() {
                 this.idialogVisible = false;

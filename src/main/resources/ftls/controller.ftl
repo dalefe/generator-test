@@ -56,17 +56,25 @@ public class ${ClassName}Controller {
         try {
             return Result.successJson(${EntityName}Service.insert(${EntityName}));
         }catch (Exception e){
-        return  Result.errorJson("数据库操作异常",401);
+        return  Result.errorJson("数据库操作异常，请检查id是否重复",401);
         }
     }
 
     @RequestMapping("update${ClassName}")
     private Result update(@RequestBody ${ClassName} ${EntityName}){
-        return Result.successJson(${EntityName}Service.update(${EntityName}));
+        try {
+            return Result.successJson(${EntityName}Service.update(${EntityName}));
+        }catch (Exception e){
+        return  Result.errorJson("数据库操作异常",401);
+        }
     }
 
     @RequestMapping("delete${ClassName}")
     private Result delete(@RequestBody ${ClassName} ${EntityName}){
-        return Result.successJson(${EntityName}Service.delete(${EntityName}));
+        try {
+            return Result.successJson(${EntityName}Service.delete(${EntityName}));
+        }catch (Exception e){
+        return  Result.errorJson("数据库操作异常",401);
+        }
     }
 }
