@@ -39,7 +39,7 @@ public class BaseTask {
 
 
 
-@Test
+
 	public void getBean(List<String> tableName) throws Exception {
 		setDaoTask(daoTask);
 		setEntityTask(entityTask);

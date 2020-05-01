@@ -28,20 +28,7 @@ public static void initConnection() {
 		e.printStackTrace();
 	}
 }
-	//获取注解
-	public static  String getCommentByTableName(String tableName) throws Exception{
-		initConnection();
-		Statement stmt=conn.createStatement();
-		ResultSet rs=stmt.executeQuery("SHOW CREATE TABLE "+tableName);
-		String comment=null;
-		if (rs!=null&&rs.next()){
-			comment=rs.getString(2);
-		}
-		rs.close();
-		stmt.close();
-		conn.close();
-		return comment;
-	}
+
 
 	//获取所有表名称
 	public static List<String> getTableNames(){
@@ -86,6 +73,12 @@ public static void initConnection() {
 		conn.close();
 		return columnInfoList;
 	}
+
+	/**
+	 * 根据数据库表名返回前端所需集合，包含表名和转换后的驼峰名
+	 * @param tableName
+	 * @return
+	 */
 	public static List<Object> gettableInfoByTableName(String tableName){
 		initConnection();
 		try {

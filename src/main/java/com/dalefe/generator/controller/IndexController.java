@@ -47,7 +47,7 @@ public class IndexController {
 			return Result.successJson("成功");
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+	}
 		return Result.successJson("失败");
 	}
 }
